@@ -59,8 +59,8 @@ if __name__ == "__main__":
     print("演算結果")
     print(f"回帰係数 b1: {b1:.4f}")
     print(f"切片 b0: {b0:.4f}")
-    print(f"寄与率 R2: {R2:.4f}")
-
+    print(f"寄与率 R2: {R2:.4f}")  
+    print("以上のような結果")
     
     drawScatter(x, y, variable_name_list[0], variable_name_list[1],
                 data_name, b0, b1, R2, plot_labels=sample_name_list)
