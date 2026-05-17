@@ -56,6 +56,7 @@ if __name__ == "__main__":
     R2 = (b1 * Sxy) / Syy
 
   
+    print("計算結果")
     print(f"回帰係数 b1: {b1:.4f}")
     print(f"切片 b0: {b0:.4f}")
     print(f"寄与率 R2: {R2:.4f}")
