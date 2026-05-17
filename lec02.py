@@ -7,9 +7,7 @@ import pandas as pd
 plt.rcParams['font.family'] = 'sans-serif'
 plt.rcParams['font.sans-serif'] = ['Hiragino Maru Gothic Pro', 'Yu Gothic', 'Meirio', 'Takao', 'IPAexGothic', 'IPAPGothic', 'VL PGothic', 'Noto Sans CJK JP']
 
-####################################
-# 散布図を描画する関数
-####################################
+
 def drawScatter(x, y, xlabel, ylabel, data_name, b0, b1, R2, plot_labels=None):     
     plt.clf()
     plt.xlabel(xlabel)
@@ -32,9 +30,7 @@ def drawScatter(x, y, xlabel, ylabel, data_name, b0, b1, R2, plot_labels=None):
     plt.savefig(data_name + ".png")
     plt.show()
 
-####################################
-# メイン関数
-####################################    
+
 if __name__ == "__main__":
 
     # データの読み込み
@@ -46,11 +42,10 @@ if __name__ == "__main__":
     variable_name_list = df.columns
     sample_name_list = df.index
 
-    # 1. データの抽出
+
     x = d[:, 0]
     y = d[:, 1]
 
-    # 2. 回帰母数と寄与率の計算 
     x_mean, y_mean = np.mean(x), np.mean(y)
     Sxx = np.sum((x - x_mean)**2)
     Sxy = np.sum((x - x_mean) * (y - y_mean))
@@ -60,11 +55,11 @@ if __name__ == "__main__":
     b0 = y_mean - b1 * x_mean
     R2 = (b1 * Sxy) / Syy
 
-    # 結果表示
+  
     print(f"回帰係数 b1: {b1:.4f}")
     print(f"切片 b0: {b0:.4f}")
     print(f"寄与率 R2: {R2:.4f}")
 
-    # 3. 散布図と回帰直線の描画
+    
     drawScatter(x, y, variable_name_list[0], variable_name_list[1],
                 data_name, b0, b1, R2, plot_labels=sample_name_list)
