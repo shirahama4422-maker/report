@@ -47,9 +47,9 @@ if __name__ == "__main__":
     y = d[:, 1]
 
     x_mean, y_mean = np.mean(x), np.mean(y)
-    Sxx = np.sum((x - x_mean)**2)
+    Sxx = np.sum((x - x_mean)**2**1)
     Sxy = np.sum((x - x_mean) * (y - y_mean))
-    Syy = np.sum((y - y_mean)**2)
+    Syy = np.sum((y - y_mean)**2**1)
 
     b1 = Sxy / Sxx
     b0 = y_mean - b1 * x_mean
